@@ -110,11 +110,15 @@ start.addEventListener("click", function(){
 // });
 
 // Answer Button Functions
-
-    // Append question div
-      //For loop questions into buttons
-        //call click function
-        // on click event function()
           //If correct == button id then score++ / Else timer - 10
+    
+    //If timer = 0 then set page to high score HTML
+
+  // Set up a  form 
+    //user enter + score
+      //on enter user name and score append to list
+    //localstorage set list
+    //buttons return you to home page
+    //button clears ul and localstorage
 
 
