@@ -30,7 +30,6 @@ var start = document.querySelector("#start");
 var instructions = document.querySelector(".instructions");
 var questionHeader = document.createElement("h2");
 var questionText = document.getElementById("question");
-var answerBtns = document.querySelector(".buttons")
 
 // Getting Question
 function getQuestionInternal(selectedQuestion){
@@ -43,15 +42,34 @@ function addQuestion(selectedQuestion){
     questionText.innerHTML = selectedQuestion.question;
 
     for(var i = 0; i < 4; i++){
+
+      
       var buttons = document.createElement("button");
-      buttons.textContent = selectedQuestion.answers[i];
+      buttons.innerHTML = selectedQuestion.answers[i];
       buttons.className = "buttons";
+      var answerBtns = quizDiv.querySelector(".buttons");
       //Setting tagging the correct answer
       if(i + 1 == selectedQuestion.correct){
         buttons.setAttribute("correct", true);
       }
+      else {
+        buttons.setAttribute("correct", false);
+      }
     quizDiv.append(buttons);
     };
+  
+    answerBtns.addEventListener("click", function(){
+
+      if (answerBtns.correct == true){
+        score++;
+        $(".quiz").append("<hr><br><p>Correct!</p>");
+      }
+      else  {
+        // if (answerBtns.correct == false)
+        timer - 100;
+        $(".quiz").append("<hr><br><p>Wrong!</p>");
+      }
+    });       
   };
 // Start button function
 start.addEventListener("click", function(){
@@ -79,18 +97,17 @@ start.addEventListener("click", function(){
       }
     }
   });
-answerBtns.addEventListener("click", function(){
+// answerBtns.addEventListener("click", function(){
 
-  if (correct == true) {
-    score++;
-
-  }
-  else {
-    timer - 10;
-  }
-
-});
-
+//   if (answerBtns.correct == true){
+//     score++;
+//     $(".quiz").append("<hr><br><p>Correct!</p>");
+//   }
+//   else {
+//     timer - 100;
+//     $(".quiz").append("<hr><br><p>Correct!</p>");
+//   }
+// });
 
 // Answer Button Functions
 
