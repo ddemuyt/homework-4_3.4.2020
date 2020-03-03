@@ -1,24 +1,24 @@
 // Arrays for Questions, Correct Answers, and Wrong Answers
-  var question1 = {
-      question: "A?",
-      answers : ["A", "B", "C", "D",],
-      correct: 1,
-    };
-   var question2 = {
-      question: "B?",
-      answers: ["A", "B", "C", "D",],
-      correct: 2,
-    };
-   var question3 = {
-      question: "C?",
-      answers: ["A", "B", "C", "D",],
-      correct: 3,
-    };
-   var question4 = {
-      question: "D?",
-      answers: ["A", "B", "C", "D",],
-      correct: 4,
-    };
+var question1 = {
+  question: "A?",
+  answers: ["A", "B", "C", "D", ],
+  correct: 1,
+};
+var question2 = {
+  question: "B?",
+  answers: ["A", "B", "C", "D", ],
+  correct: 2,
+};
+var question3 = {
+  question: "C?",
+  answers: ["A", "B", "C", "D", ],
+  correct: 3,
+};
+var question4 = {
+  question: "D?",
+  answers: ["A", "B", "C", "D", ],
+  correct: 4,
+};
 
 var timeEl = document.querySelector("#timer");
 var quizDiv = document.querySelector(".quiz");
@@ -32,93 +32,108 @@ var questionHeader = document.createElement("h2");
 var questionText = document.getElementById("question");
 
 // Getting Question
-function getQuestionInternal(selectedQuestion){
+function getQuestionInternal(selectedQuestion) {
   return questionText = selectedQuestion.question;
 }
 
-function addQuestion(selectedQuestion){
-    
-    quizDiv.append(questionHeader);
-    questionText.innerHTML = selectedQuestion.question;
+function addQuestion(selectedQuestion) {
 
-    for(var i = 0; i < 4; i++){
+  quizDiv.append(questionHeader);
+  questionText.innerHTML = selectedQuestion.question;
 
-      
-      var buttons = document.createElement("button");
-      buttons.innerHTML = selectedQuestion.answers[i];
-      buttons.className = "buttons";
-      var answerBtns = quizDiv.querySelector(".buttons");
-      //Setting tagging the correct answer
-      if(i + 1 == selectedQuestion.correct){
-        buttons.setAttribute("correct", true);
-      }
-      else {
-        buttons.setAttribute("correct", false);
-      }
+  for (var i = 0; i < 4; i++) {
+
+
+    var buttons = document.createElement("button");
+    buttons.innerHTML = selectedQuestion.answers[i];
+    buttons.className = "buttons";
+    var answerBtns = document.querySelectorAll(".buttons");
+    //Setting tagging the correct answer
+    console.log(answerBtns)
+    if (i + 1 === selectedQuestion.correct) {
+
+      buttons.setAttribute("value", true);
+      // $(".buttons").click(function () {
+      //   score++;
+      //   $(".quiz").append("<hr><br><p>Correct!</p>");
+      // });
+
+    } else {
+      buttons.setAttribute("value", false);
+    }
     quizDiv.append(buttons);
-    };
-  
-    answerBtns.addEventListener("click", function(){
 
-      if (answerBtns.correct == true){
-        score++;
-        $(".quiz").append("<hr><br><p>Correct!</p>");
-      }
-      else  {
-        // if (answerBtns.correct == false)
-        timer - 100;
-        $(".quiz").append("<hr><br><p>Wrong!</p>");
-      }
-    });       
+    $(".buttons").click(function () {
+        if ($(this).value == "true") {
+          score++;
+          $(".quiz").append("<hr><br><p>Correct!</p>");
+        } else {
+          timer - 10;
+          timeEl.textContent = timer;
+          $(".quiz").append("<hr><br><p>Wrong!</p>");
+        }});
+
+
+    };
+
+    // answerBtns.addEventListener("click", function () {
+
+    //   if (true) {
+    //     score++;
+    //     $(".quiz").append("<hr><br><p>Correct!</p>");
+    //   } else {
+    //     // if (answerBtns.correct == false)
+    //     timer - 100;
+    //     $(".quiz").append("<hr><br><p>Wrong!</p>");
+    //   }
+    // });
   };
-// Start button function
-start.addEventListener("click", function(){
+  // Start button function
+  start.addEventListener("click", function () {
     setTime();
     emptyDiv();
     addQuestion(question1);
-    
+
     // Timer Interval Function (might need outside of start function)
     function setTime() {
-        var timerInterval = setInterval(function() {
-          timer--;
-          timeEl.textContent = timer;
-      
-          if(timer === 0) {
-            clearInterval(timerInterval);
-            // sendMessage();
-          }
-      
-        }, 1000);
-      }
+      var timerInterval = setInterval(function () {
+        timer--;
+        timeEl.textContent = timer;
+
+        if (timer === 0) {
+          clearInterval(timerInterval);
+          // sendMessage();
+        }
+
+      }, 1000);
+    }
     // Empty div
-    function emptyDiv(){
-      while(quizDiv.lastChild !== questionText) {
+    function emptyDiv() {
+      while (quizDiv.lastChild !== questionText) {
         quizDiv.removeChild(quizDiv.lastChild);
       }
     }
   });
-// answerBtns.addEventListener("click", function(){
+  // answerBtns.addEventListener("click", function(){
 
-//   if (answerBtns.correct == true){
-//     score++;
-//     $(".quiz").append("<hr><br><p>Correct!</p>");
-//   }
-//   else {
-//     timer - 100;
-//     $(".quiz").append("<hr><br><p>Correct!</p>");
-//   }
-// });
+  //   if (answerBtns.correct == true){
+  //     score++;
+  //     $(".quiz").append("<hr><br><p>Correct!</p>");
+  //   }
+  //   else {
+  //     timer - 100;
+  //     $(".quiz").append("<hr><br><p>Correct!</p>");
+  //   }
+  // });
 
-// Answer Button Functions
-          //If correct == button id then score++ / Else timer - 10
-    
-    //If timer = 0 then set page to high score HTML
+  // Answer Button Functions
+  //If correct == button id then score++ / Else timer - 10
+
+  //If timer = 0 then set page to high score HTML
 
   // Set up a  form 
-    //user enter + score
-      //on enter user name and score append to list
-    //localstorage set list
-    //buttons return you to home page
-    //button clears ul and localstorage
-
-
+  //user enter + score
+  //on enter user name and score append to list
+  //localstorage set list
+  //buttons return you to home page
+  //button clears ul and localstorage
