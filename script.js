@@ -1,139 +1,173 @@
+//INDEX
+
 // Arrays for Questions, Correct Answers, and Wrong Answers
-var question1 = {
+var questions = [
+  {
   question: "A?",
-  answers: ["A", "B", "C", "D", ],
+  answers: ["A1", "B1", "C1", "D1", ],
   correct: 1,
-};
-var question2 = {
+},{
   question: "B?",
-  answers: ["A", "B", "C", "D", ],
+  answers: ["A2", "B2", "C2", "D2", ],
   correct: 2,
-};
-var question3 = {
+},{
   question: "C?",
-  answers: ["A", "B", "C", "D", ],
+  answers: ["A3", "B3", "C3", "D3", ],
   correct: 3,
-};
-var question4 = {
+},{
   question: "D?",
-  answers: ["A", "B", "C", "D", ],
+  answers: ["A4", "B4", "C4", "D4", ],
   correct: 4,
-};
+}
+];
 
 var timeEl = document.querySelector("#timer");
+var introDiv = document.querySelector(".intro");
 var quizDiv = document.querySelector(".quiz");
+var start = document.querySelector("#start");
+var instructions = document.querySelector("#instructions");
+var questionHeader = document.createElement("h2");
+var questionText = document.getElementById("question");
+var answerBtns = document.querySelectorAll(".buttons");
+var introH = document.querySelector("#generalH");
+var btn1 = document.querySelector("#btn1");
+var btn1 = document.querySelector("#btn2");
+var btn1 = document.querySelector("#btn3");
+var btn1 = document.querySelector("#btn4");
+var result = document.querySelector("#result")
+
+var display = "intro"
 
 var timer = 100;
 var score = 0;
-
-var start = document.querySelector("#start");
-var instructions = document.querySelector(".instructions");
-var questionHeader = document.createElement("h2");
-var questionText = document.getElementById("question");
+var questionCount = 0;
 
 // Getting Question
-function getQuestionInternal(selectedQuestion) {
-  return questionText = selectedQuestion.question;
+// function getQuestionInternal(selectedQuestion) {
+//   return questionText = selectedQuestion.question;
+// }
+
+function addQuestion() {
+
+  questionText.innerHTML = questions[questionCount].question;
 }
-
-function addQuestion(selectedQuestion) {
-
-  quizDiv.append(questionHeader);
-  questionText.innerHTML = selectedQuestion.question;
-
-  for (var i = 0; i < 4; i++) {
-
-
-    var buttons = document.createElement("button");
-    buttons.innerHTML = selectedQuestion.answers[i];
-    buttons.className = "buttons";
-    var answerBtns = document.querySelectorAll(".buttons");
-    //Setting tagging the correct answer
-    console.log(answerBtns)
-    if (i + 1 === selectedQuestion.correct) {
-
-      buttons.setAttribute("value", true);
-      // $(".buttons").click(function () {
-      //   score++;
-      //   $(".quiz").append("<hr><br><p>Correct!</p>");
-      // });
-
-    } else {
-      buttons.setAttribute("value", false);
-    }
-    quizDiv.append(buttons);
-
-    $(".buttons").click(function () {
-        if ($(this).value == "true") {
-          score++;
-          $(".quiz").append("<hr><br><p>Correct!</p>");
-        } else {
-          timer - 10;
-          timeEl.textContent = timer;
-          $(".quiz").append("<hr><br><p>Wrong!</p>");
-        }});
-
-
-    };
-
-    // answerBtns.addEventListener("click", function () {
-
-    //   if (true) {
-    //     score++;
-    //     $(".quiz").append("<hr><br><p>Correct!</p>");
-    //   } else {
-    //     // if (answerBtns.correct == false)
-    //     timer - 100;
-    //     $(".quiz").append("<hr><br><p>Wrong!</p>");
-    //   }
-    // });
-  };
-  // Start button function
+// Start button function
   start.addEventListener("click", function () {
+    if (display === "intro" && timer > 0){
     setTime();
-    emptyDiv();
-    addQuestion(question1);
+    display = "quiz";
+    quizDiv.setAttribute("class", "quiz");
+    introDiv.setAttribute("class", "intro d-none");
+    // emptyDiv();
+    addQuestion(questions[questionCount]);
+    }
+    else {
+      window.location.href = "./highscores.html";
+    }
+    });
 
-    // Timer Interval Function (might need outside of start function)
-    function setTime() {
+// Timer Interval Function
+function setTime() {
       var timerInterval = setInterval(function () {
+        if (timer > 0 && display === "quiz"){
         timer--;
         timeEl.textContent = timer;
-
-        if (timer === 0) {
+        }
+        else {
           clearInterval(timerInterval);
-          // sendMessage();
+          display = "quiz";
+          quizDiv.setAttribute("class", "quiz d-none");
+          introDiv.setAttribute("class", "intro");      
+          introH.innerHTML = "GAME OVER";
+          instructions.innerHTML = "Please enter your initials!";
+          start.innerHTML = "Enter"
         }
 
       }, 1000);
     }
-    // Empty div
-    function emptyDiv() {
-      while (quizDiv.lastChild !== questionText) {
-        quizDiv.removeChild(quizDiv.lastChild);
-      }
-    }
-  });
-  // answerBtns.addEventListener("click", function(){
+btn1.addEventListener("click", function () {
+  questionCount++;
+    // if (timer > 0) {
+    //   score++;
+      
+    // } else if (timer > 0) {
+      
+    //   timer = timer - 10;
+    //   timeEl.textContent = timer;
 
-  //   if (answerBtns.correct == true){
-  //     score++;
-  //     $(".quiz").append("<hr><br><p>Correct!</p>");
-  //   }
-  //   else {
-  //     timer - 100;
-  //     $(".quiz").append("<hr><br><p>Correct!</p>");
+    // }
+    addQuestion();
+  });
+  // for (i = )  
+  // $("#question").html(questions)
+
+  btn2.addEventListener("click", function () {
+    if ($(this).value == "true" && timer > 0) {
+      score++;
+      questionCount++;
+    } else if (timer > 0) {
+      questionCount++;
+      timer = timer - 10;
+      timeEl.textContent = timer;
+
+    }});
+
+btn3.addEventListener("click", function () {
+  if ($(this).value == "true" && timer > 0) {
+    score++;
+    questionCount++;
+  } else if (timer > 0) {
+    questionCount++;
+    timer = timer - 10;
+    timeEl.textContent = timer;
+
+  }});
+
+btn4.addEventListener("click", function () {
+  if ($(this).value == "true" && timer > 0) {
+    score++;
+    questionCount++;
+  } else if (timer > 0) {
+    questionCount++;
+    timer = timer - 10;
+    timeEl.textContent = timer;
+
+  }});
+
+ 
+
+    // buttons.innerHTML = selectedQuestion.answers[i];
+    // buttons.className = "buttons";
+    
+    //Setting tagging the correct answer
+    // if (i + 1 === selectedQuestion.correct) {
+
+    //   buttons.setAttribute("value", true);
+
+    // } else {
+    //   buttons.setAttribute("value", false);
+    // }
+    // quizDiv.append(buttons);
+    // };
+
+ 
+  
+    // Empty Div
+  //   function emptyDiv() {
+  //       quizDiv.removeChild(quizDiv.lastChild);
+  //       quizDiv.removeChild(quizDiv.lastChild);
+  //       instructions.innerHTML = "";
   //   }
   // });
+
 
   // Answer Button Functions
   //If correct == button id then score++ / Else timer - 10
 
-  //If timer = 0 then set page to high score HTML
 
   // Set up a  form 
   //user enter + score
   //on enter user name and score append to list
   //localstorage set list
   //buttons return you to home page
-  //button clears ul and localstorage
+  //button clears ul and local storage 
