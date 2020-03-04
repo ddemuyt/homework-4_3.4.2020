@@ -125,6 +125,9 @@ var btn3 = document.querySelector("#btn3");
 var btn4 = document.querySelector("#btn4");
 var result = document.querySelector("#result");
 var newForm = document.createElement("form");
+var getIntitials = document.querySelector("#userInitials").value;
+var highscores = document.querySelector("#highscores");
+var newLI = document.createElement("li");
 
 var display = "intro";
 
@@ -175,7 +178,11 @@ start.addEventListener("click", function() {
     // emptyDiv();
     addQuestion(questions[questionCount]);
   } else {
+    display = "intro";
     window.location.href = "./highscores.html";
+    highscores.setAttribute("class", "intro");
+    highscores.append(newLI);
+    = getIntitials
   }
 });
 
@@ -188,6 +195,7 @@ function setTime() {
     } else {
       clearInterval(timerInterval);
       display = "quiz";
+      timeEl.textContent = 0;
       quizDiv.setAttribute("class", "quiz d-none");
       introDiv.setAttribute("class", "intro");
       introH.innerHTML = "GAME OVER";
@@ -201,6 +209,9 @@ btn1.addEventListener("click", checkCorrect());
 btn2.addEventListener("click", checkCorrect());
 btn3.addEventListener("click", checkCorrect());
 btn4.addEventListener("click", checkCorrect());
+
+
+
 
 // buttons.innerHTML = selectedQuestion.answers[i];
 // buttons.className = "buttons";
