@@ -129,6 +129,8 @@ var getIntitials = document.querySelector("#userInitials");
 var highscores = document.querySelector("#user-highscores");
 var newLI = document.createElement("li");
 
+var localHS = [];
+
 var display = "intro";
 
 var timer = 100;
@@ -168,7 +170,10 @@ function checkCorrect(answer) {
   addAnswers(questions[questionCount]);
 }
 
+
+
 // Start button function
+
 start.addEventListener("click", function() {
   if (display === "intro" && timer > 0) {
     setTime();
@@ -205,45 +210,39 @@ function setTime() {
   }, 1000);
 }
 
-function renderHighscores() {
-  // Clear todoList element and update todoCountSpan
-  todoList.innerHTML = "";
-  todoCountSpan.textContent = todos.length;
+// function renderHighscores() {
+//   // Clear todoList element and update todoCountSpan
+//   highscores.innerHTML = "";
 
-  // Render a new li for each todo
-  for (var i = 0; i < todos.length; i++) {
-    var todo = todos[i];
+//   // Render a new li for each todo
+//   for (var i = 0; i < localHS.length; i++) {
+//     var hs = hs[i];
 
-    var li = document.createElement("li");
-    li.textContent = todo;
-    li.setAttribute("data-index", i);
+//     var li = document.createElement("li");
+//     li.textContent = todo;
+//     li.setAttribute("data-index", i);
 
-    var button = document.createElement("button");
-    button.textContent = "Complete";
+//     highscores.appendChild(li);
+//   }
+// }
+// function init() {
+//   // Get stored todos from localStorage
+//   // Parsing the JSON string to an object
+//   var storedHS = JSON.parse(localStorage.getItem("todos"));
 
-    li.appendChild(button);
-    todoList.appendChild(li);
-  }
-}
-function init() {
-  // Get stored todos from localStorage
-  // Parsing the JSON string to an object
-  var storedTodos = JSON.parse(localStorage.getItem("todos"));
+//   // If todos were retrieved from localStorage, update the todos array to it
+//   if (storedHS !== null) {
+//     localHS = storedHS;
+//   }
 
-  // If todos were retrieved from localStorage, update the todos array to it
-  if (storedTodos !== null) {
-    todos = storedTodos;
-  }
+//   // Render todos to the DOM
+//   renderHighscores();
+// }
 
-  // Render todos to the DOM
-  renderTodos();
-}
-
-function storeTodos() {
-  // Stringify and set "todos" key in localStorage to todos array
-  localStorage.setItem("todos", JSON.stringify(todos));
-}
-
+// function storeHighscores() {
+//   // Stringify and set "todos" key in localStorage to todos array
+//   localStorage.setItem("todos", JSON.stringify(todos));
+// }
 
 btn1.addEventListener("click", checkCorrect());
 btn2.addEventListener("click", checkCorrect());
