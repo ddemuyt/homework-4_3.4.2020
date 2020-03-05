@@ -6,7 +6,7 @@ This application is for a Code Quiz using HTML, CSS, and JavaScript.
 The initial code on HTML outlines the general structure of the quiz, with divs indicating the intro and quiz cards used. The intro div indicates intructions on the game, shows the timer, and has a Start button.
 <br><img src="./Assets/intro_codequiz.png"><br>
 Upon clicking the start buttons, Javascript functions start workign in the background. I have the timer starting, Bootstrap hiding and reveal the two divs, and then rendering questions into the quiz.
-<br><img src=".Assets/quiz_codequiz.png"><br>
+<br><img src="./Assets/quiz_codequiz.png"><br>
 Running functions and onclick events on all the buttons and referencing them to the array of objects housing the correct answer indicator, I display whether the user is right or wrong. For right, I increase their score and move to the next question. For wrong, I decrease their time and move to the next question. Once the time runs out, the game is over. I swap back to the original div and add a form to it to collect the user's intials. I have also displayed their score on this page.
 <br><img src="./Assets/gameover_codequiz.png"><br>
 When the Enter button is clicked, the user is redirected to the highscore page. A work in progress. The user's intials and scores should be saved here, in local storage, the reset button should start the game over again, and the clear highscores button should clear the list/local storage.
