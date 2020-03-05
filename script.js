@@ -125,8 +125,8 @@ var btn3 = document.querySelector("#btn3");
 var btn4 = document.querySelector("#btn4");
 var result = document.querySelector("#result");
 var newForm = document.createElement("form");
-var getIntitials = document.querySelector("#userInitials").value;
-var highscores = document.querySelector("#highscores");
+var getIntitials = document.querySelector("#userInitials");
+var highscores = document.querySelector("#user-highscores");
 var newLI = document.createElement("li");
 
 var display = "intro";
@@ -182,7 +182,7 @@ start.addEventListener("click", function() {
     window.location.href = "./highscores.html";
     highscores.setAttribute("class", "intro");
     highscores.append(newLI);
-    = getIntitials
+    // = getIntitials.value
   }
 });
 
@@ -205,12 +205,56 @@ function setTime() {
   }, 1000);
 }
 
+function renderHighscores() {
+  // Clear todoList element and update todoCountSpan
+  todoList.innerHTML = "";
+  todoCountSpan.textContent = todos.length;
+
+  // Render a new li for each todo
+  for (var i = 0; i < todos.length; i++) {
+    var todo = todos[i];
+
+    var li = document.createElement("li");
+    li.textContent = todo;
+    li.setAttribute("data-index", i);
+
+    var button = document.createElement("button");
+    button.textContent = "Complete";
+
+    li.appendChild(button);
+    todoList.appendChild(li);
+  }
+}
+function init() {
+  // Get stored todos from localStorage
+  // Parsing the JSON string to an object
+  var storedTodos = JSON.parse(localStorage.getItem("todos"));
+
+  // If todos were retrieved from localStorage, update the todos array to it
+  if (storedTodos !== null) {
+    todos = storedTodos;
+  }
+
+  // Render todos to the DOM
+  renderTodos();
+}
+
+function storeTodos() {
+  // Stringify and set "todos" key in localStorage to todos array
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+
 btn1.addEventListener("click", checkCorrect());
 btn2.addEventListener("click", checkCorrect());
 btn3.addEventListener("click", checkCorrect());
 btn4.addEventListener("click", checkCorrect());
 
-
+//clear click event
+//get element
+//splice from index
+//store in local
+//re render list
 
 
 // buttons.innerHTML = selectedQuestion.answers[i];
