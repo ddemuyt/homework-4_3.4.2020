@@ -3,110 +3,110 @@
 // Arrays for Questions, Correct Answers, and Wrong Answers
 var questions = [
   {
-    question: "A?",
-    answers: ["A1", "B1", "C1", "D1"],
-    correct: 0
-  },
-  {
-    question: "B?",
-    answers: ["A2", "B2", "C2", "D2"],
+    question: "Which US President is most to the left on the Mount Rushmore National Memorial??",
+    answers: ["Theodore Roosevelt", "George Washington", "Thomas Jefferson", "Abraham Lincoln"],
     correct: 1
   },
   {
-    question: "C?",
-    answers: ["A3", "B3", "C3", "D3"],
+    question: "In which language was the book 'War and Peace' originally written?",
+    answers: ["French", "English", "German", "Russian"],
+    correct: 3
+  },
+  {
+    question: "Which of these NBA franchises has never signed LeBron James?",
+    answers: ["Cleveland Cavaliers", "Boston Celtics", "Los Angeles Lakers", "Miami Heat"],
+    correct: 1
+  },
+  {
+    question: "What did Alfred Nobel develop?",
+    answers: ["Atomic Bomb", "Gunpowder", "Nobelium", "Dynamite"],
+    correct: 3
+  },
+  {
+    question: "Other than eggs, what is a primary ingredient in Eggs Florentine?",
+    answers: ["Gorgonzola", "Avocado", "Ham", "Spinach"],
+    correct: 3
+  },
+  {
+    question: "Adele performed the theme song to which James Bond film?",
+    answers: ["From Russia With Love", "Quantum of Solace", "Skyfall", "Casino Royale"],
     correct: 2
   },
   {
-    question: "D?",
-    answers: ["A4", "B4", "C4", "D4"],
+    question: "Which country hosted the Summer Olympics in 2016?",
+    answers: ["Spain", "China", "Brazil", "Greece"],
+    correct: 2
+  },
+  {
+    question: "What is the largest planet in our Solar SystemWhat is the largest planet in our Solar System?",
+    answers: ["Saturn", "Earth", "Pluto", "Jupiter"],
     correct: 3
   },
   {
-    question: "E?",
-    answers: ["A4", "B4", "C4", "D4"],
+    question: "Which of these countries was not a Soviet Republic in USSR?",
+    answers: ["Serbia", "Azerbaijan", "Moldova", "Kyrgyzstan"],
+    correct: 0
+  },
+  {
+    question: "How many spaces are on a standard Monopoly board?",
+    answers: ["80", "20", "60", "40"],
     correct: 3
   },
   {
-    question: "F?",
-    answers: ["A4", "B4", "C4", "D4"],
+    question: "How many blue stripes does the United States of America national flag have?",
+    answers: ["7", "6", "13", "0"],
     correct: 3
   },
   {
-    question: "G?",
-    answers: ["A4", "B4", "C4", "D4"],
+    question: "What is the name of the boxer whose life story is depicted in the 1999 movie 'The Hurricane'?",
+    answers: ["Muhammad Ali", "Jake LaMotta", "Rubin Carter", "Rocky Marciano"],
+    correct: 2
+  },
+  {
+    question: "What was the first successful vaccine developed in history?",
+    answers: ["Cholera", "Scarlet Fever", "Rabies", "Smallpox"],
     correct: 3
   },
   {
-    question: "H?",
-    answers: ["A4", "B4", "C4", "D4"],
+    question: "Which movie was the first to win 11 Academy Awards?",
+    answers: ["La La Land", "Titanic", "Sound of Music", "Ben-Hur"],
     correct: 3
   },
   {
-    question: "I?",
-    answers: ["A4", "B4", "C4", "D4"],
-    correct: 3
+    question: "What is the largest country, by area, that has only one time zone?",
+    answers: ["Russia", "Turkey", "China", "Australia"],
+    correct: 2
   },
   {
-    question: "J?",
-    answers: ["A4", "B4", "C4", "D4"],
-    correct: 3
-  },
-  {
-    question: "K?",
-    answers: ["A4", "B4", "C4", "D4"],
-    correct: 3
-  },
-  {
-    question: "K?",
-    answers: ["A4", "B4", "C4", "D4"],
-    correct: 3
-  },
-  {
-    question: "K?",
-    answers: ["A4", "B4", "C4", "D4"],
-    correct: 3
-  },
-  {
-    question: "K?",
-    answers: ["A4", "B4", "C4", "D4"],
-    correct: 3
-  },
-  {
-    question: "K?",
-    answers: ["A4", "B4", "C4", "D4"],
-    correct: 3
-  },
-  {
-    question: "K?",
-    answers: ["A4", "B4", "C4", "D4"],
+    question: "Which actress plays a major role on the TV show 'The Big Bang Theory'?",
+    answers: ["Sofia Vergara", "Portia de Rossi", "Emily Deschanel", "Kaley Cuoco"],
     correct: 3
   },
 
   {
-    question: "K?",
-    answers: ["A4", "B4", "C4", "D4"],
-    correct: 3
+    question: "Which of these cities is closest to London, UK?",
+    answers: ["Boston, MA", "Atlanta, GA", "Miami, FL", "New York, NY"],
+    correct: 0
   },
   {
-    question: "K?",
-    answers: ["A4", "B4", "C4", "D4"],
-    correct: 3
+    question: "What religion is the most practiced one in India?",
+    answers: ["Shinto", "Hinduism", "Islam", "Sikhism"],
+    correct: 1
   },
   {
-    question: "K?",
-      answers: ["A4", "B4", "C4", "D4"],
-      correct: 3
+    question: "What is the name for the Jewish New Year?",
+      answers: ["Kwanzaa", "Rosh Hashanah", "Yom Kippur", "Hanukkah"],
+      correct: 1
     },
     {
-      question: "K?",
-        answers: ["A4", "B4", "C4", "D4"],
+      question: "Which city's landmarks include: The Pantheon, The Spanish Steps and Trevi Fountain?",
+        answers: ["Istanbul", "Barcelona", "Athens", "Rome"],
         correct: 3
       },
       {
-        question: "K?",
-          answers: ["A4", "B4", "C4", "D4"],
-          correct: 3
+        question: "According to Persian folklore, who is the storyteller of 'One Thousand and One Nights'?",
+          answers: ["Scheherazade", "Kanaan", "Homer", "Hatshepsut"],
+          correct: 0
         },
 ];
 
@@ -133,7 +133,7 @@ var localHS = [];
 
 var display = "intro";
 
-var timer = 100;
+var timer = 75;
 var score = 0;
 var questionCount = 0;
 
@@ -182,6 +182,7 @@ start.addEventListener("click", function() {
     introDiv.setAttribute("class", "intro d-none");
     // emptyDiv();
     addQuestion(questions[questionCount]);
+    addAnswers(questions[questionCount]);
   } else {
     display = "intro";
     window.location.href = "./highscores.html";
